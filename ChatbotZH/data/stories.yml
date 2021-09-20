@@ -1,0 +1,42 @@
+version: "2.0"
+
+stories:
+- story: user want robot to recommend conferences or papers or journals
+  steps:
+  - intent: recommend
+  - action: action_recommend
+
+- story: user want robot to gain the information of specific conference or paper or journal
+  steps:
+  - intent: select
+  - action: action_select
+
+- story: user want robot to search in hammerScholar
+  steps:
+  - intent: ES_Search
+  - action: action_ES_Search
+
+- story: Ask the user to rephrase in case of low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_default
+
+- story: confort with somebody
+  steps:
+  - intent: depression
+  - action: utter_cheer_up
+
+- story: praise somebody
+  steps:
+  - intent: happiness
+  - action: utter_happy
+
+- story: greeting
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- story: consult on name
+  steps:
+  - intent: whoami
+  - action: utter_iamabot

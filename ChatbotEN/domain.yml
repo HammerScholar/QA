@@ -1,0 +1,142 @@
+version: "2.0"
+
+intents:
+  - recommend
+  - select
+  - ES_Search
+
+entities:
+  - conf_name
+  - conf_category
+  - conf_degree
+  - conf_deadline
+  - conf_notice
+  - conf_extended
+  - vague_time
+  - online
+  - PERSON
+  - DATE
+  - GPE
+  - year
+  - conf_year
+  - journal_name
+  - publisher
+  - IF
+  - h_index
+  - type
+
+
+slots:
+  conf_name:
+    type: list
+    initial_value: null
+  conf_category:
+    type: list
+    initial_value: null
+  conf_degree:
+    type: list
+    initial_value: null
+  conf_deadline:
+    type: text
+    initial_value: null
+  conf_notice:
+    type: text
+    initial_value: null
+  conf_extended:
+    type: text
+    initial_value: null
+  vague_time:
+    type: list
+    initial_value: null
+  online:
+    type: text
+    initial_value: null
+  PERSON:
+    type: list
+    initial_value: null
+  DATE:
+    type: list
+    initial_value: null
+  GPE:
+    type: text
+    initial_value: null
+  year:
+    type: text
+    initial_value: null
+  conf_year:
+    type: text
+    initial_value: null
+  journal_name:
+    type: list
+    initial_value: null
+  journal_category:
+    type: list
+    initial_value: null
+  publisher:
+    type: text
+    initial_value: null
+  IF:
+    type: text
+    initial_value: null
+  h_index:
+    type: text
+    initial_value: null
+  fenqu:
+    type: text
+    initial_value: null
+  type:     
+    type: categorical
+    initial_value: null
+    values:
+      - conference
+      - conferences
+      - paper
+      - papers
+      - journal
+      - journals
+      - null
+  recommend_copy:
+    type: text
+    initial_value: null
+  select_copy:
+    type: text
+    initial_value: null
+
+responses:
+  utter_greet:
+  - text: "text|hello~"
+
+  utter_cheer_up:
+  - text: "text|Don't take it seriously. You are the best."
+  - text: "text|Better luck next time!"
+  - text: "text|Don't be so hard on yourself."
+  - text: "text|Everything will be fine."
+
+  utter_happy:
+  - text: "text|Great, carry on!"
+  - text: "text|You did a great job."
+  - text: "text|We're so proud of you."
+
+  utter_goodbye:
+  - text: "text|Bye~"
+
+  utter_iamabot:
+  - text: "text|I am Scholar who could answer the questions about conferences, papers and journals. Do you have some questions."
+
+  utter_default:
+  - text: "text|I'm sorry, I didn't quite understand that. Could you rephrase?"
+  - text: "text|Sorry, I haven't learned this question. You could ask: which conference will be held in July, 2021"
+  - text: "text|Sorry, I haven't learned this question. You could ask: recommend some conferences about OS which is deadlined recently"
+  - text: "text|Sorry, I haven't learned this question. You could ask: Yoshua Bengio's papers this year"
+  - text: "text|Sorry, I haven't learned this question. You could ask: journal whose IF is higher than 10"
+  - text: "text|Sorry, I haven't learned this question. You could ask: deadline of AAAI2022"
+  - text: "text|Sorry, I haven't learned this question. You could ask: IF of Nature"
+
+actions:
+- action_recommend
+- action_select
+- action_ES_Search
+
+session_config:
+  session_expiration_time: 10
+  carry_over_slots_to_new_session: false

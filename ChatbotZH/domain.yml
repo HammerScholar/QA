@@ -1,0 +1,139 @@
+version: "2.0"
+
+intents:
+  - recommend
+  - select
+  - greet
+  - whoami
+  - happiness
+  - depression
+  - ES_Search
+
+entities:
+  - conf_name
+  - conf_category
+  - conf_degree
+  - conf_deadline
+  - conf_notice
+  - conf_extended
+  - vague_time
+  - online
+  - PERSON
+  - DATE
+  - GPE
+  - year
+  - journal_name
+  - journal_category
+  - IF
+  - h_index
+  - fenqu
+  - type
+  - publisher
+
+slots:
+  conf_name:
+    type: list
+    initial_value: null
+  conf_category:
+    type: list
+    initial_value: null
+  conf_degree:
+    type: list
+    initial_value: null
+  conf_deadline:
+    type: text
+    initial_value: null
+  conf_notice:
+    type: text
+    initial_value: null
+  conf_extended:
+    type: text
+    initial_value: null
+  vague_time:
+    type: list
+    initial_value: null
+  online:
+    type: text
+    initial_value: null
+  PERSON:
+    type: list
+    initial_value: null
+  DATE:
+    type: text
+    initial_value: null
+  GPE:
+    type: text
+    initial_value: null
+  year:
+    type: text
+    initial_value: null
+  conf_year:
+    type: text
+    initial_value: null
+  journal_name:
+    type: list
+    initial_value: null
+  journal_category:
+    type: list
+    initial_value: null
+  IF:
+    type: text
+    initial_value: null
+  h_index:
+    type: text
+    initial_value: null
+  fenqu:
+    type: text
+    initial_value: null
+  publisher:
+    type: text
+    initial_value: null
+  type:     
+    type: categorical
+    initial_value: null
+    values:
+      - 会议
+      - 论文
+      - 期刊
+      - null
+  recommend_copy:
+    type: text
+    initial_value: null
+  select_copy:
+    type: text
+    initial_value: null
+
+responses:
+  utter_greet:
+  - text: "text|你好呀"
+
+  utter_cheer_up:
+  - text: "text|没事儿，摸摸头，继续加油！"
+  - text: "text|人生不会是一帆风顺的，给自己放松一下，明天会更好的"
+
+  utter_happy:
+  - text: "text|真不错，为你高兴"
+  - text: "text|不错喔，但是切勿骄傲，继续加油哦"
+
+  utter_goodbye:
+  - text: "text|Bye"
+
+  utter_iamabot:
+  - text: "text|我是你的智能对话机器人小锤，可以为您回答关于科技领域的会议、论文、期刊相关的问题，有什么问题欢迎向我提问~"
+
+  utter_default:
+  - text: "text|我还没有学习到这个问题唉. 你可以试着问：最近截稿的A类会议"
+  - text: "text|我还没有学习到这个问题唉. 你可以试着问：李航老师在ACL2020上发表的论文"
+  - text: "text|我还没有学习到这个问题唉. 你可以试着问：影响因子大于10的计算机方向的期刊"
+  - text: "text|我还没有学习到这个问题唉. 你可以试着问：ACL2021的截稿时间"
+  - text: "text|我还没有学习到这个问题唉. 你可以试着问：Journal of the ACM的IF影响因子"
+  - text: "text|我还没有学习到这个问题唉. 你可以试着问：今年AAAI会议在哪里举办呢"
+
+actions:
+- action_recommend
+- action_select
+- action_ES_Search
+
+session_config:
+  session_expiration_time: 10
+  carry_over_slots_to_new_session: false
